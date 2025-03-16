@@ -1,0 +1,27 @@
+@if ( inputFormData?.touched && (inputFormData?.errors ||conformPass )) {
+<div class="flex ms-4 text-sm text-red-800" role="alert">
+  <span class="sr-only">Danger</span>
+  <div>
+    <ul class="mt-1 list-disc list-inside">
+      @if (inputFormData?.getError('required')) {
+      <li class="capitalize">required</li>
+      }@else if (inputFormData?.getError('minlength')) {
+      <li class="capitalize">min characters 3</li>
+      }@else if (inputFormData?.getError('maxlength')) {
+      <li class="capitalize">max characters 20</li>
+      }@else if (inputFormData?.getError('email')) {
+      <li class="capitalize">wrong email</li>
+      }@else if (inputFormData?.getError('pattern')) {
+      <li class="capitalize">
+        you should start capital character then small character
+      </li>
+      }@else if ( conformPass) {
+      <li class="capitalize">pass not match</li>
+      } @else if (inputFormData?.getError("pattern")) {
+      <li class="capitalize">invaild number</li>
+
+      }
+    </ul>
+  </div>
+</div>
+}

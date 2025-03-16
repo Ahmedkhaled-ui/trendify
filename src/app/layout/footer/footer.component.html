@@ -1,0 +1,81 @@
+<footer class="bg-bgfooter text-gray-200 py-5 mt-8">
+  <div class="grid md:grid-cols-2 container">
+    <div>
+      <h1 class="text-[25px] mb-3 capitalize">trendify</h1>
+      <p class="mb-3 text-gray-400">
+        {{ "footer.Join" | translate }}
+      </p>
+      <div class="grid md:grid-cols-[65%_25%] mb-3 items-baseline gap-3">
+        <input
+          placeholder="        {{ 'footer.email' | translate }}
+          "
+          type="text"
+          id="disabled-input"
+          class="mb-6 bg-gray-100 border border-gray-300 text-gray-400 text-sm rounded-lg block p-2.5"
+        />
+        <button
+          class="py-2 px-3 bg-secondColro border-2 border-gray-300 rounded-lg hover:bg-mainColor"
+        >
+          {{ "footer.subscribe" | translate }}
+        </button>
+      </div>
+      <p class="mb-3">
+        {{ "footer.subscribing" | translate }}
+      </p>
+    </div>
+    <div class="grid md:grid-cols-3 items-baseline gap-x-10">
+      <div class="flex flex-col gap-y-1 items-center">
+        <h1 class="mb-5">{{ "nav.category" | translate }}</h1>
+        <p>{{ "nav.home" | translate }}</p>
+        <p>{{ "nav.product" | translate }}</p>
+        <p>{{ "nav.brands" | translate }}</p>
+      </div>
+      <div class="flex flex-col gap-y-1">
+        <h1 class="mb-5">{{ "footer.customersupport" | translate }}</h1>
+        <p>{{ "footer.Support" | translate }}</p>
+        <p>{{ "footer.Tearms" | translate }}</p>
+        <p>{{ "footer.Privacy" | translate }}</p>
+        <p>{{ "footer.Help" | translate }}</p>
+      </div>
+      <div class="flex flex-col gap-y-1">
+        <h1 class="mb-5">{{ "footer.followus" | translate }}</h1>
+        <a
+          href="#"
+          class="block py-2 px-3 text-gray-200 rounded-sm md:bg-transparent md:p-0"
+          aria-current="page"
+        >
+          <i class="fab fa-facebook me-2"></i> facebook
+        </a>
+        <a
+          href="#"
+          class="block py-2 px-3 text-gray-200 rounded-sm md:bg-transparent md:p-0"
+          aria-current="page"
+        >
+          <i class="fab fa-twitter me-2"></i> twitter
+        </a>
+        <a
+          href="#"
+          class="block py-2 px-3 text-gray-200 rounded-sm md:bg-transparent md:p-0"
+          aria-current="page"
+        >
+          <i class="fab fa-linkedin me-2"></i> linked-in
+        </a>
+
+        <a
+          href="#"
+          class="block py-2 px-3 text-gray-200 rounded-sm md:bg-transparent md:p-0"
+          aria-current="page"
+        >
+          <i class="fab fa-tiktok me-2"></i> tiktok
+        </a>
+        <a
+          href="#"
+          class="block py-2 px-3 text-gray-200 rounded-sm md:bg-transparent md:p-0"
+          aria-current="page"
+        >
+          <i class="fab fa-instagram me-2"></i> instagram
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

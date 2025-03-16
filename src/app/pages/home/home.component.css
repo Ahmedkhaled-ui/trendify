@@ -1,0 +1,17 @@
+.bg-backGround {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url(/images/home.png);
+  background-position: left;
+  background-size: cover;
+  min-height: 974px;
+}
+.photoFit {
+  object-fit: cover;
+  height: 330px;
+  width: 100%;
+}
+.photoFit2 {
+  object-fit: cover;
+  object-position: 15% 15%;
+  height: 282px;
+}

@@ -1,0 +1,5 @@
+.photoFit2 {
+  object-fit: cover;
+  object-position: 15% 15%;
+  height: 282px;
+}

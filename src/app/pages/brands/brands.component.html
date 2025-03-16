@@ -1,0 +1,22 @@
+<section class="container md:p-0 p-3">
+  <h1 class="font-semibold text-center text-textcolor text-[24px] mb-10">
+    shop by brands
+  </h1>
+  <div class="grid grid-cols-3 md:grid-cols-4 gap-3">
+    @for (item of brandData(); track $index) {
+
+    <div
+      class="shadow-sm bg-white cursor-pointer dark:bg-gray-800 hover:scale-105 hover:shadow-md duration-150 dark:border-gray-700"
+    >
+      <a>
+        <img
+          class="rounded-t-lg w-[300px] h-[100px] object-contain"
+          [src]="item.image"
+          alt="product image"
+        />
+      </a>
+    </div>
+
+    }
+  </div>
+</section>

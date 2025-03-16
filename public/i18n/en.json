@@ -1,0 +1,74 @@
+{
+  "nav": {
+    "home": "Home",
+    "product": "product",
+    "category": "category",
+    "brands": "brands",
+    "orders": "my orders",
+    "login": "login",
+    "sign": "sign",
+    "lang": "US",
+    "signOut": "sign out"
+  },
+  "home": {
+    "title": "Elevate Your Home  with Stylish Furniture",
+    "disc": "Explore a range of high-quality, affordable furniture designed to transform any room. Discover the perfect blend of style, comfort, and functionality for your space.",
+    "shopnow": "shop now",
+
+    "secondSlider": {
+      "UpgradeyourStyle": "Upgrade your Style",
+      "desc": "up to 50% off on all clothing and accessories!",
+      "shopnow": "shop now"
+    },
+    "FlashSale ": "Flash Sale",
+    "GrabThemBeforeThey ": "Grab Them Before They're Gone!",
+    "seeAll": "see All",
+    "newCollection": " new Collection",
+    "CheckthenewCollection": " Check the new Collection",
+    "Shoes": "Shoes",
+    "UPTO50%OFF": "UP TO 50%OFF",
+    "bags": "bags",
+    "Accessories": "Accessories",
+    "products": "products",
+    "BestSellingProduct": "Best Selling Product",
+    "TopProducts": "Top Products",
+    "TopPicksforYou!": "Top Picks for You!",
+    "DiscoverFashion": "Discover Fashion That Speaks To You.",
+    "Discoverdesc": "Explore a range of high-quality, affordable furniture designed to transform any room. Discover the perfect blend of style, comfort, and functionality for your space.",
+    "Services": "Services",
+    "Benefits": "Benefits when using our services",
+    "Inspiration": "Inspiration",
+    "CustomerServices": "24/7 Customer Services",
+    "ExpressShipping": "Express Shipping"
+  },
+  "footer": {
+    "Join ": "Join our newsletter to stay up to date on features and releases.",
+    "email ": "enter your email",
+    "subscribe ": "subscribe",
+    "subscribing  ": "By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.",
+    "customersupport": "customer support",
+    "Support": "Help & Support",
+
+    "Tearms": "Tearms & Conditions",
+    "Privacy": "Privacy Policy",
+    "Help": "Help",
+    "followus": "follow us"
+  },
+  "sign": {
+    "acoount": "creat a new account",
+    "UserName": "User Name",
+    "email": "E-mail",
+    "password": "password",
+    "comfirmpassword": "comfirm password",
+    "phone": "phone",
+    "agree": "i agree with the ",
+    "terms": " terms and conditions",
+    "signUp": "sign up",
+    "Continue ": "Or Continue With",
+    "haveAcoount": "Already have on account? Log In.",
+    "Welcome ": "Welcome Back!",
+    "forgotPass": "forgot password",
+    "login": "login in",
+    "dontHaveAcoount": "Don’t have an account ? Sign up."
+  }
+}

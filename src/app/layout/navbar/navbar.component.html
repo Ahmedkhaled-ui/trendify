@@ -1,0 +1,435 @@
+<nav
+  [class]="{
+    'bg-transparent': isHomePage,
+    'border-b-0': isHomePage,
+  }"
+  class="bg-gray-100 pb-2 border-b-0 md:px-10 pt-2 ms-2 me-2 md:ms-0 dark:bg-gray-900 z-10 fixed top-0 start-0 end-0"
+>
+  <div
+    [class]="{
+      'bg-gray-100': bgNav(),
+      'rounded-lg': bgNav()
+    }"
+    class="max-w-screen-2xl flex flex-nowrap items-baseline justify-between md:px-2 py-2"
+  >
+    <a class="flex items-center rtl:space-x-reverse">
+      <span
+        class="self-center capitalize text-mainColor bg-transparent text-3xl font-semibold whitespace-nowrap dark:text-white"
+        >trendify</span
+      >
+    </a>
+
+    <button
+      (click)="showNav()"
+      type="button"
+      class="inline-flex md:order-1 order-11 items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      aria-controls="navbar-default"
+      aria-expanded="false"
+    >
+      <span class="sr-only">Open main menu</span>
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"
+        />
+      </svg>
+    </button>
+
+    <div class="flex items-baseline">
+      @if (userToken()) {
+      <ul
+        class="font-medium md:me-5 md:ms-auto mt-2 gap-x-2 flex items-center md:p-0 rounded-lg md:flex-row md:space-x-1 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700"
+      >
+        <li>
+          <a
+            type="button"
+            routerLink="signup"
+            routerLinkActive=" "
+            class="block text-[14px] font-semibold rounded-full dark:text-white"
+            aria-current="page"
+            ><svg
+              class="w-6 h-6 text-mainColor dark:text-white"
+              [class.text-white]="isHomePage"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              fill="none"
+              viewBox="0 0 22 22"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="1"
+                d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"
+              />
+            </svg>
+          </a>
+        </li>
+        <li class="relative">
+          <a
+            type="button"
+            routerLink="/WishList"
+            routerLinkActive=" "
+            class="block text-[14px] font-semibold rounded-full dark:text-white"
+            aria-current="page"
+            ><svg
+              class="w-6 h-6 text-mainColor dark:text-white"
+              [class.text-white]="isHomePage"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              fill="none"
+              viewBox="0 0 22 22"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1"
+                d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z"
+              />
+            </svg>
+          </a>
+          @if ( numberIfLiked() ) {
+          <span
+            class="text-white bottom-4 left-4 rounded-full bg-mainColor absolute text-xs font-medium me-2 px-1 py-0.5"
+          >
+            {{ numberIfLiked() }}
+          </span>
+          }
+        </li>
+        <li class="relative">
+          <a
+            type="button"
+            routerLink="/cart"
+            routerLinkActive=" "
+            class="block text-[14px] font-semibold rounded-full dark:text-white"
+            aria-current="page"
+            ><svg
+              class="w-6 h-6 text-mainColor dark:text-white"
+              [class.text-white]="isHomePage"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              fill="none"
+              viewBox="0 0 22 22"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1"
+                d="M5 4h1.5L9 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-8.5-3h9.25L19 7H7.312"
+              />
+            </svg>
+          </a>
+          @if (numberIfCartItem()) {
+          <span
+            class="text-white bottom-4 left-4 rounded-full bg-mainColor absolute text-xs font-medium me-2 px-1 py-0.5"
+          >
+            {{ numberIfCartItem() }}
+          </span>
+          }
+        </li>
+
+        <li class="relative">
+          <a
+            (click)="logout()"
+            type="button"
+            routerLinkActive=" "
+            class="block text-[14px] cursor-pointer font-semibold rounded-full dark:text-white"
+            aria-current="page"
+            ><svg
+              class="w-6 h-6 text-mainColor dark:text-white"
+              [class.text-white]="isHomePage"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="22"
+              height="22"
+              fill="none"
+              viewBox="0 0 22 22"
+            >
+              <path
+                stroke="currentColor"
+                stroke-width="1"
+                d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+              />
+            </svg>
+          </a>
+          @if (hideLogOut) {
+          <button
+            (click)="userLogOut()"
+            class="bg-white -left-5 top-8 shadow absolute text-sm flex py-2 ps-1 w-[100px] rounded-md rounded-tl-none text-mainColor text-18px font-medium hover:bg-gray-50"
+          >
+            {{ "nav.signOut" | translate }}
+            <span>
+              <svg
+                class="w-6 h-6 text-mainColor dark:text-white"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1"
+                  d="M16 12H4m12 0-4 4m4-4-4-4m3-4h2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3h-2"
+                />
+              </svg>
+            </span></button
+          >}
+        </li>
+      </ul>
+
+      }@else {
+      <ul
+        class="font-medium flex ms-auto p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700"
+      >
+        <li>
+          <a
+            type="button"
+            routerLink="login"
+            routerLinkActive=" "
+            class="block py-2 px-6 border-[1px] border-mainColor text-[14px] font-semibold text-mainColor rounded-full dark:text-white"
+            aria-current="page"
+            >{{ "nav.login" | translate }}</a
+          >
+        </li>
+        <li>
+          <a
+            type="button"
+            routerLink="signup"
+            routerLinkActive=" "
+            class="block py-2 px-6 border-[1px] bg-mainColor text-[14px] font-semibold text-gray-50 rounded-full dark:text-white"
+            aria-current="page"
+            >{{ "nav.sign" | translate }}</a
+          >
+        </li>
+      </ul>
+      }
+
+      <div class="relative ms-5">
+        <button
+          (click)="dropDown()"
+          class="flex bg-mainColor text-white rounded-full p-1 px-3"
+        >
+          @if (typeLang()) {
+          <svg
+            class="w-5 h-5 rounded-full me-3 shadow"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            viewBox="0 0 3900 3900"
+          >
+            <path fill="#b22234" d="M0 0h7410v3900H0z" />
+            <path
+              d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
+              stroke="#fff"
+              stroke-width="300"
+            />
+            <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
+            <g fill="#fff">
+              <g id="d">
+                <g id="c">
+                  <g id="e">
+                    <g id="b">
+                      <path
+                        id="a"
+                        d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
+                      />
+                      <use xlink:href="#a" y="420" />
+                      <use xlink:href="#a" y="840" />
+                      <use xlink:href="#a" y="1260" />
+                    </g>
+                    <use xlink:href="#a" y="1680" />
+                  </g>
+                  <use xlink:href="#b" x="247" y="210" />
+                </g>
+                <use xlink:href="#c" x="494" />
+              </g>
+              <use xlink:href="#d" x="988" />
+              <use xlink:href="#c" x="1976" />
+              <use xlink:href="#e" x="2470" />
+            </g>
+          </svg>
+          <span>EN</span>} @else {
+          <svg
+            class="w-5 h-5 rounded-full me-3"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 480"
+          >
+            <rect width="640" height="160" fill="#CE1126" />
+
+            <rect y="160" width="640" height="160" fill="#FFF" />
+
+            <rect y="320" width="640" height="160" fill="#000" />
+
+            <g transform="translate(320 240) scale(0.5)">
+              <path fill="#C09300" d="M-40-80h80l-40 160z" />
+              <path fill="#C09300" d="M-40 80h80v80h-80z" />
+              <path
+                fill="#C09300"
+                d="M-60 0h20v40h-20zm100 0h20v40h-20zm-90 60h10v40h-10zm80 0h10v40h-10z"
+              />
+            </g>
+          </svg>
+          <span>AR</span>
+          }
+        </button>
+        @if (dropdown) {
+        <div class="absolute button-3">
+          <ul class="bg-gray-50 p-3 rounded-xl space-y-5 cursor-pointer">
+            <li (click)="lang('en')" class="flex">
+              <svg
+                class="w-5 h-5 rounded-full me-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 3900 3900"
+              >
+                <path fill="#b22234" d="M0 0h7410v3900H0z" />
+                <path
+                  d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
+                  stroke="#fff"
+                  stroke-width="300"
+                />
+                <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
+                <g fill="#fff">
+                  <g id="d">
+                    <g id="c">
+                      <g id="e">
+                        <g id="b">
+                          <path
+                            id="a"
+                            d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
+                          />
+                          <use xlink:href="#a" y="420" />
+                          <use xlink:href="#a" y="840" />
+                          <use xlink:href="#a" y="1260" />
+                        </g>
+                        <use xlink:href="#a" y="1680" />
+                      </g>
+                      <use xlink:href="#b" x="247" y="210" />
+                    </g>
+                    <use xlink:href="#c" x="494" />
+                  </g>
+                  <use xlink:href="#d" x="988" />
+                  <use xlink:href="#c" x="1976" />
+                  <use xlink:href="#e" x="2470" />
+                </g>
+              </svg>
+              <span>EN</span>
+            </li>
+            <li (click)="lang('ar')" class="flex">
+              <svg
+                class="w-5 h-5 rounded-full me-3"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 640 480"
+              >
+                <rect width="640" height="160" fill="#CE1126" />
+
+                <rect y="160" width="640" height="160" fill="#FFF" />
+
+                <rect y="320" width="640" height="160" fill="#000" />
+
+                <g transform="translate(320 240) scale(0.5)">
+                  <path fill="#C09300" d="M-40-80h80l-40 160z" />
+                  <path fill="#C09300" d="M-40 80h80v80h-80z" />
+                  <path
+                    fill="#C09300"
+                    d="M-60 0h20v40h-20zm100 0h20v40h-20zm-90 60h10v40h-10zm80 0h10v40h-10z"
+                  />
+                </g>
+              </svg>
+              <span>AR</span>
+            </li>
+          </ul>
+        </div>
+
+        }
+      </div>
+    </div>
+  </div>
+
+  @if (showNavItem) {
+  <div
+    class="flex -mt-8 w-full flex-row md:flex-grow justify-center items-baseline md:w-auto px-10"
+  >
+    <ul
+      class="font-medium flex p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700"
+    >
+      <li>
+        <a
+          routerLink="/home"
+          routerLinkActive=""
+          [class.text-white]="isHomePage"
+          [class.text-mainColor]="bgNav()"
+          class="block py-2 px-3 text-[14px] text-textcolor2 font-bold rounded-sm md:p-0 dark:text-white"
+          aria-current="page"
+          >{{ "nav.home" | translate }}</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/product"
+          routerLinkActive=""
+          [class.text-white]="isHomePage"
+          class="block capitalize py-2 px-3 text-[14px] text-textcolor2 font-bold rounded-sm md:p-0 dark:text-white"
+          aria-current="page"
+          >{{ "nav.product" | translate }}
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/category"
+          routerLinkActive=""
+          [class.text-white]="isHomePage"
+          class="block capitalize py-2 px-3 text-[14px] text-textcolor2 font-bold rounded-sm md:p-0 dark:text-white"
+          aria-current="page"
+        >
+          {{ "nav.category" | translate }}
+        </a>
+      </li>
+      <li>
+        <a
+          routerLink="/brands"
+          routerLinkActive=""
+          [class.text-white]="isHomePage"
+          class="block capitalize py-2 px-3 text-[14px] text-textcolor2 font-bold rounded-sm md:p-0 dark:text-white"
+          aria-current="page"
+          >{{ "nav.brands" | translate }}</a
+        >
+      </li>
+      <li>
+        <a
+          routerLink="/allorders"
+          routerLinkActive=""
+          [class.text-white]="isHomePage"
+          class="block capitalize py-2 px-3 text-[14px] text-textcolor2 font-bold rounded-sm md:p-0 dark:text-white"
+          aria-current="page"
+        >
+          {{ "nav.orders" | translate }}</a
+        >
+      </li>
+    </ul>
+  </div>
+  }
+</nav>

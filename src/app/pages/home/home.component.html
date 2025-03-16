@@ -1,0 +1,161 @@
+<section class="first__sec bg-backGround -mt-32 flex text-white">
+  <div class="md:p-5 flex flex-col gap-y-5 mt-48 md:ms-20 ms-5">
+    <h1 class="text-[50px] w-[70%]">
+      {{ "home.title" | translate }}
+    </h1>
+    <h2 class="w-[80%] md:w-[50%]">
+      {{ "home.disc" | translate }}
+    </h2>
+    <button
+      routerLink="/product"
+      class="bg-mainColor self-start py-1 px-14 rounded-full text-white"
+    >
+      {{ "home.shopnow" | translate }}
+    </button>
+  </div>
+</section>
+<section class="slider__first">
+  <div class="md:p-6">
+    <owl-carousel-o
+      [options]="customOptions"
+      class="flex flex-col justify-center items-center"
+    >
+      @for (catrgory of catrgory(); track $index) {
+      <ng-template carouselSlide>
+        <div class="w-[90px] h-[90px] rounded-full">
+          <img
+            class="w-full h-full rounded-full"
+            [src]="catrgory.image"
+            [alt]="catrgory.name"
+          />
+        </div>
+        <span class="text-[12px] text-textcolor font-bold mt-2 ms-4">
+          {{ catrgory.name }}
+        </span></ng-template
+      >}
+    </owl-carousel-o>
+  </div>
+</section>
+<section class="slider__second">
+  <app-secondslider></app-secondslider>
+</section>
+<section class="flash__sale text-center mt-5">
+  <h5 class="text-mainColor">{{ "home.FlashSale" | translate }}</h5>
+  <h6 class="text-textcolor text-[24px]">
+    {{ "home.GrabThemBeforeThey" | translate }}
+  </h6>
+  <div
+    class="mx-auto container grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-3 mt-10"
+  >
+    @for (Product of productList().slice(34,38); track $index) {
+    <app-recent-card [data]="Product"></app-recent-card>
+    }
+  </div>
+  <button
+    routerLink="/product"
+    class="outline-mainColor capitalize outline-1 text-mainColor mt-10 font-light outline self-center py-1 px-5 rounded-full"
+  >
+    {{ "home.seeAll" | translate }}
+    <svg
+      class="w-6 h-6 inline-block text-mainColor dark:text-white"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1"
+        d="m9 5 7 7-7 7"
+      />
+    </svg>
+  </button>
+</section>
+<section class="New__Collection text-center mt-5 container md:w-full">
+  <app-new-collection></app-new-collection>
+</section>
+<section class="sec__Products text-center mt-5 container">
+  <h5 class="text-mainColor">{{ "home.products" | translate }}</h5>
+  <h6 class="text-textcolor text-[24px] mb-5">
+    {{ "home.BestSellingProduct" | translate }}
+  </h6>
+  <div class="flex justify-center mb-10">
+    <app-tabs class="w-[full]"></app-tabs>
+  </div>
+  <div
+    class="mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mt-10"
+  >
+    @for (Product of productList().slice(10,14); track $index) {
+    <app-recent-card [data]="Product"></app-recent-card>
+    }
+  </div>
+  <button
+    routerLink="/product"
+    class="outline-mainColor mt-10 capitalize outline-1 text-mainColor font-light outline self-start py-1 px-5 rounded-full"
+  >
+    {{ "home.seeAll" | translate }}
+    <svg
+      class="w-6 h-6 inline-block text-mainColor dark:text-white"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1"
+        d="m9 5 7 7-7 7"
+      />
+    </svg>
+  </button>
+</section>
+<section class="Top__Products text-center mt-5 container">
+  <h5 class="text-mainColor">{{ "home.TopProducts" | translate }}</h5>
+  <h6 class="text-textcolor text-[24px] mb-5">
+    {{ "home.TopPicksforYou" | translate }}
+  </h6>
+  <div
+    class="mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mt-10"
+  >
+    @for (Product of productList().slice(15,23); track $index) {
+    <app-recent-card [data]="Product"></app-recent-card>
+    }
+  </div>
+  <button
+    routerLink="/product"
+    class="outline-mainColor mt-10 capitalize outline-1 text-mainColor font-light outline self-start py-1 px-5 rounded-full"
+  >
+    {{ "home.seeAll" | translate }}
+    <svg
+      class="w-6 h-6 inline-block text-mainColor dark:text-white"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1"
+        d="m9 5 7 7-7 7"
+      />
+    </svg>
+  </button>
+</section>
+<section>
+  <app-discover></app-discover>
+</section>
+<section class="__serves mt-10 container">
+  <app-servec></app-servec>
+</section>

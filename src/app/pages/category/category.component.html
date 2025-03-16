@@ -1,0 +1,27 @@
+<section class="container">
+  <h1 class="font-semibold text-center text-textcolor text-[24px] mb-10">
+    shop by category
+  </h1>
+  <div class="grid grid-cols-4 gap-3">
+    @for (item of categoryData().slice(1); track $index) {
+
+    <div
+      class="shadow-sm bg-white cursor-pointer dark:bg-gray-800 hover:scale-105 hover:shadow-md duration-150 dark:border-gray-700"
+    >
+      <a>
+        <img
+          class="rounded-t-lg w-[300px] h-[200px] object-contain"
+          [src]="item.image"
+          alt="product image"
+        />
+      </a>
+      <div class="px-5 pb-5">
+        <h5 class="tracking-tight text-center text-mainColor dark:text-white">
+          {{ item.name }}
+        </h5>
+      </div>
+    </div>
+
+    }
+  </div>
+</section>

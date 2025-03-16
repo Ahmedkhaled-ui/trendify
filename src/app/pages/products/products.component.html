@@ -1,0 +1,148 @@
+<section class="container md:p-0 p-3">
+  <div class="text-center">
+    <h1 class="text-mainColor">Category</h1>
+    <h2 class="text-textcolor text-[24px] mb-5 ms-1 font-bold">Full Outfit</h2>
+  </div>
+  <ul
+    class="flex flex-wrap text-[12px] font-medium text-center md:w-[90%] mx-auto rounded-full justify-center text-gray-700 bg-[#e6e5e5] dark:text-mainColor"
+  >
+    <li>
+      <a
+        (click)="getReletedProducts()"
+        class="flex cursor-pointer items-center w-full p-2 text-textcolor2 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+        >All product</a
+      >
+    </li>
+
+    <li>
+      <a
+        (click)="getReletedProducts('6439d5b90049ad0b52b90048')"
+        class="flex cursor-pointer items-center w-full p-2 text-textcolor2 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+        >Men's Fashion</a
+      >
+    </li>
+
+    <li>
+      <a
+        (click)="getReletedProducts('6439d58a0049ad0b52b9003f')"
+        class="flex cursor-pointer items-center w-full p-2 text-textcolor2 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+        >Women's Fashion</a
+      >
+    </li>
+  </ul>
+  <div [class.grid-cols-[30%_70%]]="isLargeScreen()" class="grid mt-10">
+    @if (isLargeScreen()) {
+    <div>
+      <h2 class="text-textcolor text-[24px] mb-5 ms-2 mt-3 font-bold">
+        Filter By
+      </h2>
+      <div class="w-[70%]">
+        <div
+          (click)="show()"
+          class="flex items-baseline justify-between cursor-pointer"
+        >
+          <span
+            class="flex-1 ms-1 text-textcolor font-bold text-left rtl:text-right whitespace-nowrap"
+            >Category</span
+          >
+          <div>
+            <svg
+              class="w-3 h-3 text-mainColor"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </div>
+        </div>
+
+        @if (showList) {
+        <ul class="py-2 ms-1">
+          <li>
+            <a
+              (click)="getReletedProducts()"
+              class="flex cursor-pointer items-center w-full p-2 text-textcolor2 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              >All product</a
+            >
+          </li>
+          <li>
+            <a
+              (click)="getReletedProducts('6439d5b90049ad0b52b90048')"
+              class="flex cursor-pointer items-center w-full p-2 text-textcolor2 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              >Men's Fashion</a
+            >
+          </li>
+          <li>
+            <a
+              (click)="getReletedProducts('6439d58a0049ad0b52b9003f')"
+              class="flex cursor-pointer items-center w-full p-2 text-textcolor2 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              >Women's Fashion</a
+            >
+          </li>
+          <li>
+            <a
+              (click)="getReletedProducts('6439d40367d9aa4ca97064cc')"
+              class="flex cursor-pointer items-center w-full p-2 text-textcolor2 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              >Baby & Toys</a
+            >
+          </li>
+
+          <li>
+            <a
+              (click)="getReletedProducts('6439d2d167d9aa4ca970649f')"
+              class="flex cursor-pointer items-center w-full p-2 text-textcolor2 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700"
+              >Electronics</a
+            >
+          </li>
+        </ul>
+        }
+      </div>
+    </div>
+    }
+    <div>
+      <div class="flex justify-between items-baseline">
+        <h2 class="text-black text-[30px] mb-5 font-extrabold">
+          Full Outfit
+          <span class="text-mainColor text-[18px]">({{ arrayLength() }}) </span>
+        </h2>
+
+        <div class="flex justify-center gap-x-2 items-center cursor-pointer">
+          <span
+            ><svg
+              class="w-6 h-6 text-gray-800 dark:text-white"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-width="2"
+                d="M18.796 4H5.204a1 1 0 0 0-.753 1.659l5.302 6.058a1 1 0 0 1 .247.659v4.874a.5.5 0 0 0 .2.4l3 2.25a.5.5 0 0 0 .8-.4v-7.124a1 1 0 0 1 .247-.659l5.302-6.059c.566-.646.106-1.658-.753-1.658Z"
+              />
+            </svg>
+          </span>
+          <span>sort by</span>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        @for (product of productList(); track $index) {
+
+        <app-recent-card [data]="product"></app-recent-card>
+
+        }
+      </div>
+    </div>
+  </div>
+</section>

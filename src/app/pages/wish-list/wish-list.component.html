@@ -1,0 +1,111 @@
+@if (likedCount()) {
+<section class="mt-16">
+  <div class="grid grid-cols-2 container gap-y-10">
+    @for (item of wishItem() ; track $index) {
+    <div class="relative">
+      <img
+        [src]="item.imageCover"
+        class="w-full h-[350px] object-contain"
+        [alt]="item.title"
+      />
+      <div class="absolute top-1 right-16">
+        <app-heart-whis [data]="item"></app-heart-whis>
+      </div>
+    </div>
+    <div class="h-[350px]">
+      <div class="flex items-center gap-x-2 mb-3">
+        <svg
+          class="w-3 h-3 text-yellow"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          viewBox="0 0 22 20"
+        >
+          <path
+            d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"
+          />
+        </svg>
+        <span class="text-sm text-textcolor font-bold">
+          {{ item.ratingsAverage }}
+        </span>
+        <span class="text-sm text-textcolor2"> ({{ item.quantity }}) </span>
+      </div>
+      <h1 class="text-textcolor font-extrabold text-[24px] mb-3">
+        {{ item.title }}
+      </h1>
+      <h2 class="text-textcolor2 text-sm text-[18px] mb-3">
+        {{ item.description }}
+      </h2>
+      <div class="mb-3">
+        @if (item.category._id !="6439d2d167d9aa4ca970649f") {
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-textcolor text-[18px]">
+            size:
+            <span class="text-mainColor text-[14px] font-semibold">Medium</span>
+          </h3>
+          <h4 class="text-mainColor underline font-normal cursor-pointer">
+            Size Guide
+          </h4>
+        </div>
+        <div class="flex gap-x-5 cursor-pointer">
+          <span class="py-1 px-2 bg-white rounded-lg text-textcolor2 text-sm"
+            >XS</span
+          >
+          <span class="py-1 px-2 bg-white rounded-lg text-textcolor2 text-sm"
+            >S</span
+          >
+          <span class="py-1 px-2 bg-white rounded-lg text-textcolor2 text-sm"
+            >M</span
+          >
+          <span class="py-1 px-2 bg-white rounded-lg text-textcolor2 text-sm"
+            >L</span
+          >
+          <span class="py-1 px-2 bg-white rounded-lg text-textcolor2 text-sm"
+            >XL</span
+          >
+          <span class="py-1 px-2 bg-white rounded-lg text-textcolor2 text-sm"
+            >XXL</span
+          >
+          <span class="py-1 px-2 bg-white rounded-lg text-textcolor2 text-sm"
+            >XXXL</span
+          >
+        </div>
+        }
+      </div>
+
+      <p class="text-textcolor ms-1 mt-3 font-semibold">
+        price:
+        <span class="text-mainColor font-medium">{{ item.price }}</span>
+      </p>
+      <div class="grid grid-cols-[30%_minmax(0,1fr)] gap-x-3 mt-3">
+        <button
+          (click)="addCart(item._id)"
+          class="bg-mainColor capitalize text-white py-3 rounded-xl"
+        >
+          add to cart
+        </button>
+        <button
+          (click)="payNow(item._id)"
+          class="outline-2 outline outline-mainColor capitalize text-mainColor py-3 rounded-xl"
+        >
+          pay now
+        </button>
+      </div>
+    </div>
+    }
+  </div>
+</section>
+}@else {
+<div class="flex justify-start items-center min-h-[100vh]">
+  <div>
+    <img
+      class="w-[250px]"
+      src="/images/kettle-desaturated._CB445243794_.svg"
+      alt=""
+    />
+  </div>
+  <h3 class="text-textcolor2 font-light text-[20px] capitalize">
+    wishList is epmty...
+  </h3>
+</div>
+}

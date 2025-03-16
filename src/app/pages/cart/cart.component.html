@@ -1,0 +1,159 @@
+@if (number()) {
+<section class="container">
+  <div class="grid grid-cols-[60%_minmax(0,1fr)] mb-5 mt-10 gap-x-10">
+    <div class="space-y-3">
+      <div class="flex items-center gap-x-3">
+        <h1 class="font-bold text-textcolor text-[32px]">Cart</h1>
+        <span class="text-mainColor font-semibold text-sm"> items </span>
+      </div>
+
+      @for (item of itemsCart.data.products ; track $index) {
+      <div class="bg-white px-3 rounded-xl gap-y-5">
+        <div class="grid grid-cols-[30%_minmax(0,1fr)]">
+          <div class="relative">
+            <img
+              class="w-full h-[150px] object-contain"
+              [src]="item.product.imageCover"
+              alt=""
+            />
+            <div class="absolute top-1 left-12">
+              <app-heart-whis [data]="item.product"></app-heart-whis>
+            </div>
+          </div>
+          <div class="flex justify-between items-center">
+            <div>
+              <h1 class="text-textcolor font-medium text-[20px] mb-3">
+                Full Outfit
+              </h1>
+              <div class="flex gap-x-3 items-baseline">
+                <button
+                  class="outline outline-textcolor2 cursor-default px-4 py-2 rounded-md bg-textcolor2 bg-opacity-20 outline-1"
+                >
+                  <span class="flex justify-between items-baseline gap-x-10">
+                    <span
+                      (click)="countOfItem(item._id, item.count + 1)"
+                      class="text-[18px] text-textcolor cursor-pointer font-bold hover:text-mainColor"
+                      >+</span
+                    >
+                    <span class="font-bold text-textcolor">1</span>
+                    <span
+                      (click)="countOfItem(item._id, item.count - 1)"
+                      class="text-[20px] text-textcolor cursor-pointer font-bold hover:text-mainColor"
+                      >-</span
+                    >
+                  </span>
+                </button>
+                <div (click)="deleteItems(item.product._id)">
+                  <svg
+                    class="w-6 h-6 text-mainColor cursor-pointer dark:text-secondColro"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 7h14m-9 3v8m4-8v8M10 3h4a1 1 0 0 1 1 1v3H9V4a1 1 0 0 1 1-1ZM6 7h12v13a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1V7Z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <h2 class="text-textcolor font-bold text-[20px]">
+              {{ item.price }} <span class="text-mainColor text-sm">E.G</span>
+            </h2>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+    <div
+      class="bg-white p-3 h-[600px] mt-10 rounded-lg border border-textcolor2"
+    >
+      <h1 class="text-textcolor text-[24px] font-semibold">Order Summary</h1>
+      <div class="mt-10 flex flex-col gap-y-3 border-b-2 pb-7">
+        <div class="flex items-center justify-between">
+          <p>price</p>
+          <p>{{ itemsCart.data.totalCartPrice }}</p>
+        </div>
+        <div class="flex items-center justify-between">
+          <p>Discount</p>
+          <p>0.00EGP</p>
+        </div>
+        <div class="flex items-center justify-between">
+          <p>Shipping</p>
+          <p class="text-mainColor font-bold">free</p>
+        </div>
+        <div class="flex items-center justify-between">
+          <p>Coupon Applied</p>
+          <p>0.00EGP</p>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-col gap-y-3">
+        <div class="flex items-center justify-between">
+          <p class="font-bold text-textcolor">TOTAL</p>
+          <p class="text-textcolor font-bold">
+            {{ itemsCart.data.totalCartPrice }}
+          </p>
+        </div>
+        <div class="flex items-center justify-between">
+          <p class="text-textcolor">Delivery by</p>
+          <p class="text-textcolor font-bold text-sm">01 Feb,2025</p>
+        </div>
+      </div>
+      <div class="my-10">
+        <form class="max-w-md mx-auto">
+          <label
+            for="default-search"
+            class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+            >Search</label
+          >
+          <div class="relative">
+            <div
+              class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none"
+            ></div>
+            <input
+              type="search"
+              id="default-search"
+              class="block w-full p-4 ps-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-secondColro focus:border-secondColro dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+              placeholder="Coupon Code"
+              required
+            />
+            <button
+              type="submit"
+              class="text-white absolute end-2.5 bottom-2.5 px-4 bg-mainColor focus:ring-4 font-medium rounded-lg text-sm py-2"
+            >
+              Apply
+            </button>
+          </div>
+        </form>
+      </div>
+      <button
+        [routerLink]="['/cheakout', itemsCart.cartId]"
+        class="bg-mainColor hover:bg-secondColro rounded-full w-full py-3 text-white"
+      >
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+  <div class="recent__product grid grid-cols-2 md:grid-cols-4"></div>
+</section>
+}@else {
+<div class="flex justify-start items-center min-h-[100vh]">
+  <div>
+    <img
+      class="w-[250px]"
+      src="/images/kettle-desaturated._CB445243794_.svg"
+      alt=""
+    />
+  </div>
+  <h3 class="text-textcolor2 font-light text-[20px] capitalize">
+    cart is epmty...
+  </h3>
+</div>
+}
