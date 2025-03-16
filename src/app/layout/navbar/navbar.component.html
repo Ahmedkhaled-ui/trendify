@@ -3,17 +3,18 @@
     'bg-transparent': isHomePage,
     'border-b-0': isHomePage,
   }"
-  class="bg-gray-100 pb-2 border-b-0 md:px-10 pt-2 ms-2 me-2 md:ms-0 dark:bg-gray-900 z-10 fixed top-0 start-0 end-0"
+  class="bg-gray-100 pb-5 border-b-2 md:px-10 pt-2 ms-2 me-2 md:ms-0 z-10 fixed top-0 start-0 end-0"
 >
   <div
     [class]="{
-      'bg-gray-100': bgNav(),
+      'bg-bgfooter': bgNav() && isHomePage,
       'rounded-lg': bgNav()
     }"
     class="max-w-screen-2xl flex flex-nowrap items-baseline justify-between md:px-2 py-2"
   >
     <a class="flex items-center rtl:space-x-reverse">
       <span
+        routerLink="/home"
         class="self-center capitalize text-mainColor bg-transparent text-3xl font-semibold whitespace-nowrap dark:text-white"
         >trendify</span
       >
@@ -51,9 +52,9 @@
       >
         <li>
           <a
+            routerLink="/search"
+            role="button"
             type="button"
-            routerLink="signup"
-            routerLinkActive=" "
             class="block text-[14px] font-semibold rounded-full dark:text-white"
             aria-current="page"
             ><svg
@@ -199,14 +200,15 @@
 
       }@else {
       <ul
-        class="font-medium flex ms-auto p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 dark:border-gray-700"
+        class="font-medium flex ms-auto p-4 md:p-0 mt-4 rounded-lg md:flex-row md:space-x-2 rtl:space-x-reverse md:mt-0 md:border-0"
       >
         <li>
           <a
+            [class.text-white]="isHomePage"
             type="button"
             routerLink="login"
             routerLinkActive=" "
-            class="block py-2 px-6 border-[1px] border-mainColor text-[14px] font-semibold text-mainColor rounded-full dark:text-white"
+            class="block py-2 px-6 border-[3px] border-mainColor text-[14px] font-semibold text-mainColor rounded-full dark:text-white"
             aria-current="page"
             >{{ "nav.login" | translate }}</a
           >
@@ -227,7 +229,7 @@
       <div class="relative ms-5">
         <button
           (click)="dropDown()"
-          class="flex bg-mainColor text-white rounded-full p-1 px-3"
+          class="flex bg-mainColor text-white rounded-xl py-1 px-3"
         >
           @if (typeLang()) {
           <svg
@@ -431,5 +433,11 @@
       </li>
     </ul>
   </div>
+  } @if (search) {
+  <section
+    class="bg-gray-50 absolute w-[50%] top-[100%] left-[50%] -translate-x-[50%] z-40"
+  >
+    <app-search></app-search>
+  </section>
   }
 </nav>

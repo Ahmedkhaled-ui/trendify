@@ -67,12 +67,16 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addCart(id: string) {
-    this.cartService.addCart(id).subscribe({
-      next: (res) => {
-        // console.log(res);
-        this.cartService.numberOfItem.set(res.numOfCartItems);
-      },
-    });
+    if (localStorage.getItem('userToken')) {
+      this.cartService.addCart(id).subscribe({
+        next: (res) => {
+          // console.log(res);
+          this.cartService.numberOfItem.set(res.numOfCartItems);
+        },
+      });
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
   getCartId() {
     this.cartService.getCart().subscribe({
@@ -84,12 +88,16 @@ export class ProductDetailsComponent implements OnInit {
     });
   }
   payNow(id: string) {
-    this.addCart(id);
+    if (localStorage.getItem('userToken')) {
+      this.addCart(id);
 
-    // this.router.navigate(['/cart']);
-    setTimeout(() => {
-      this.checkOut();
-    }, 2000);
+      // this.router.navigate(['/cart']);
+      setTimeout(() => {
+        this.checkOut();
+      }, 2000);
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   checkOut() {

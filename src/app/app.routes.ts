@@ -38,6 +38,14 @@ export const routes: Routes = [
         title: 'category',
       },
       {
+        path: 'search',
+        loadComponent: () =>
+          import('./shared/components/ui/search/search.component').then(
+            (c) => c.SearchComponent
+          ),
+        title: 'search',
+      },
+      {
         path: 'brands',
         loadComponent: () =>
           import('./pages/brands/brands.component').then(

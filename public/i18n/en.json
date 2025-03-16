@@ -20,7 +20,7 @@
       "desc": "up to 50% off on all clothing and accessories!",
       "shopnow": "shop now"
     },
-    "FlashSale ": "Flash Sale",
+    "FlashSale": "Flash Sale",
     "GrabThemBeforeThey ": "Grab Them Before They're Gone!",
     "seeAll": "see All",
     "newCollection": " new Collection",
@@ -32,7 +32,7 @@
     "products": "products",
     "BestSellingProduct": "Best Selling Product",
     "TopProducts": "Top Products",
-    "TopPicksforYou!": "Top Picks for You!",
+    "TopPicksforYou": "Top Picks for You!",
     "DiscoverFashion": "Discover Fashion That Speaks To You.",
     "Discoverdesc": "Explore a range of high-quality, affordable furniture designed to transform any room. Discover the perfect blend of style, comfort, and functionality for your space.",
     "Services": "Services",
@@ -48,7 +48,6 @@
     "subscribing  ": "By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.",
     "customersupport": "customer support",
     "Support": "Help & Support",
-
     "Tearms": "Tearms & Conditions",
     "Privacy": "Privacy Policy",
     "Help": "Help",

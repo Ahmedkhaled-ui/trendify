@@ -1,3 +1,4 @@
+import { AuthenticationService } from './../../core/services/Authentication/authentication.service';
 import {
   afterNextRender,
   Component,
@@ -15,16 +16,23 @@ import {
   RouterLink,
   RouterLinkActive,
 } from '@angular/router';
-import { AuthenticationService } from '../../core/services/Authentication/authentication.service';
 import { filter } from 'rxjs';
 import { CartService } from '../../core/services/cart/cart.service';
 import { WishlistService } from '../../core/services/wishlist/wishlist.service';
 import { TranslatePipe } from '@ngx-translate/core';
 import { MyTranslateService } from '../../core/services/myTranslate/my-translate.service';
+import { RecentCardComponent } from '../../shared/components/ui/recentCard/recent-card/recent-card.component';
+import { SearchComponent } from '../../shared/components/ui/search/search.component';
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, RouterLinkActive, TranslatePipe],
+  imports: [
+    RouterLink,
+    RouterLinkActive,
+    TranslatePipe,
+    RecentCardComponent,
+    SearchComponent,
+  ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
@@ -46,11 +54,12 @@ export class NavbarComponent implements OnInit {
   bgNav: WritableSignal<boolean> = signal(false);
   showNavItem: boolean = false;
   dropdown: boolean = false;
+  search: boolean = false;
   typeLang: WritableSignal<boolean> = signal(true);
 
   constructor() {
     afterNextRender(() => {
-      this.showNavItem = window.innerWidth > 768;
+      this.showNavItem = window.innerWidth > 976;
       this.lang(localStorage.getItem('lang')!);
     });
   }
@@ -78,6 +87,8 @@ export class NavbarComponent implements OnInit {
         this.wishlistService.liked.set(res.count);
       },
     });
+
+    this.authenticationService.search;
   }
   logout() {
     this.hideLogOut = !this.hideLogOut;
@@ -106,5 +117,9 @@ export class NavbarComponent implements OnInit {
     if (localStorage.getItem('lang') == 'ar') {
       this.typeLang.set(false);
     }
+  }
+
+  clickSearch() {
+    this.search = !this.search;
   }
 }

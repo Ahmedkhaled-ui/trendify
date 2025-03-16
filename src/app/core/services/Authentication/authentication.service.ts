@@ -16,6 +16,8 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthenticationService {
+  search: boolean = false;
+
   userToken: WritableSignal<string> = signal('');
   private readonly router = inject(Router);
   constructor(private httpClient: HttpClient) {
