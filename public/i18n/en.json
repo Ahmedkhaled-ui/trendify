@@ -41,11 +41,23 @@
     "CustomerServices": "24/7 Customer Services",
     "ExpressShipping": "Express Shipping"
   },
+  "product": {
+    "Category": "Category",
+    "FullOutfit": "Full Outfit",
+    "FilterBy": "Filter By",
+    "sortby": "sort by "
+  },
+  "category": {
+    "shopbycategory": "shop by category"
+  },
+  "brands": {
+    "shopbybrands": "shop by brands"
+  },
   "footer": {
-    "Join ": "Join our newsletter to stay up to date on features and releases.",
-    "email ": "enter your email",
-    "subscribe ": "subscribe",
-    "subscribing  ": "By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.",
+    "Join": "Join our newsletter to stay up to date on features and releases.",
+    "email": "enter your email",
+    "subscribe": "subscribe",
+    "subscribing": "By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.",
     "customersupport": "customer support",
     "Support": "Help & Support",
     "Tearms": "Tearms & Conditions",
@@ -63,9 +75,9 @@
     "agree": "i agree with the ",
     "terms": " terms and conditions",
     "signUp": "sign up",
-    "Continue ": "Or Continue With",
+    "Continue": "Or Continue With",
     "haveAcoount": "Already have on account? Log In.",
-    "Welcome ": "Welcome Back!",
+    "Welcome": "Welcome Back!",
     "forgotPass": "forgot password",
     "login": "login in",
     "dontHaveAcoount": "Don’t have an account ? Sign up."

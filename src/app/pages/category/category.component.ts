@@ -7,10 +7,11 @@ import {
 } from '@angular/core';
 import { CategoriesService } from '../../core/services/categories/categories.service';
 import { Icategory } from '../../core/interface/Icategory/icategory';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-category',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './category.component.html',
   styleUrl: './category.component.css',
 })

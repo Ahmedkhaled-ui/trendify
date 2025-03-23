@@ -1,7 +1,9 @@
 <section class="container md:p-0 p-3">
   <div class="text-center">
-    <h1 class="text-mainColor">Category</h1>
-    <h2 class="text-textcolor text-[24px] mb-5 ms-1 font-bold">Full Outfit</h2>
+    <h1 class="text-mainColor">{{ "product.Category" | translate }}</h1>
+    <h2 class="text-textcolor text-[24px] mb-5 ms-1 font-bold">
+      {{ "product.FullOutfit" | translate }}
+    </h2>
   </div>
   <ul
     class="flex flex-wrap text-[12px] font-medium text-center md:w-[90%] mx-auto rounded-full justify-center text-gray-700 bg-[#e6e5e5] dark:text-mainColor"
@@ -34,7 +36,7 @@
     @if (isLargeScreen()) {
     <div>
       <h2 class="text-textcolor text-[24px] mb-5 ms-2 mt-3 font-bold">
-        Filter By
+        {{ "product.FilterBy" | translate }}
       </h2>
       <div class="w-[70%]">
         <div
@@ -43,7 +45,7 @@
         >
           <span
             class="flex-1 ms-1 text-textcolor font-bold text-left rtl:text-right whitespace-nowrap"
-            >Category</span
+            >{{ "product.Category" | translate }}</span
           >
           <div>
             <svg
@@ -110,7 +112,7 @@
     <div>
       <div class="flex justify-between items-baseline">
         <h2 class="text-black text-[30px] mb-5 font-extrabold">
-          Full Outfit
+          {{ "product.FullOutfit" | translate }}
           <span class="text-mainColor text-[18px]">({{ arrayLength() }}) </span>
         </h2>
 
@@ -133,7 +135,7 @@
               />
             </svg>
           </span>
-          <span>sort by</span>
+          <span> {{ "product.sortby " | translate }} </span>
         </div>
       </div>
       <div class="grid grid-cols-2 md:grid-cols-3 gap-3">

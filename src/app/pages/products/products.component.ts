@@ -14,10 +14,12 @@ import { Iproduct } from '../../core/interface/iproduct';
 import { RecentCardComponent } from '../../shared/components/ui/recentCard/recent-card/recent-card.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CategoriesService } from '../../core/services/categories/categories.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-products',
   imports: [
+    TranslatePipe,
     CarouselModule,
     TabsComponent,
     RecentCardComponent,

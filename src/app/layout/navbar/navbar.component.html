@@ -1,7 +1,8 @@
 <nav
   [class]="{
+      'border-b-transparent': isHomePage,
+
     'bg-transparent': isHomePage,
-    'border-b-0': isHomePage,
   }"
   class="bg-gray-100 pb-5 border-b-2 md:px-10 pt-2 ms-2 me-2 md:ms-0 z-10 fixed top-0 start-0 end-0"
 >
@@ -10,7 +11,7 @@
       'bg-bgfooter': bgNav() && isHomePage,
       'rounded-lg': bgNav()
     }"
-    class="max-w-screen-2xl flex flex-nowrap items-baseline justify-between md:px-2 py-2"
+    class="max-w-screen-2xl flex flex-nowrap items-center justify-between md:px-2 py-2"
   >
     <a class="flex items-center rtl:space-x-reverse">
       <span
@@ -90,7 +91,7 @@
               xmlns="http://www.w3.org/2000/svg"
               width="22"
               height="22"
-              fill="none"
+              fill="main"
               viewBox="0 0 22 22"
             >
               <path
@@ -104,7 +105,7 @@
           </a>
           @if ( numberIfLiked() ) {
           <span
-            class="text-white bottom-4 left-4 rounded-full bg-mainColor absolute text-xs font-medium me-2 px-1 py-0.5"
+            class="text-mainColor bottom-0 left-1.5 rtl:-left-1 rounded-full p-1 absolute text-xs font-medium me-2 px-1 py-0.5"
           >
             {{ numberIfLiked() }}
           </span>
@@ -138,7 +139,7 @@
           </a>
           @if (numberIfCartItem()) {
           <span
-            class="text-white bottom-4 left-4 rounded-full bg-mainColor absolute text-xs font-medium me-2 px-1 py-0.5"
+            class="text-white bg-mainColor font-bold bottom-3 left-0 rounded-full absolute text-xs me-2 px-1 py-0.5"
           >
             {{ numberIfCartItem() }}
           </span>
@@ -208,7 +209,7 @@
             type="button"
             routerLink="login"
             routerLinkActive=" "
-            class="block py-2 px-6 border-[3px] border-mainColor text-[14px] font-semibold text-mainColor rounded-full dark:text-white"
+            class="block py-2 px-6 border-[2px] border-mainColor text-[14px] font-semibold text-mainColor rounded-full dark:text-white"
             aria-current="page"
             >{{ "nav.login" | translate }}</a
           >
@@ -231,69 +232,72 @@
           (click)="dropDown()"
           class="flex bg-mainColor text-white rounded-xl py-1 px-3"
         >
-          @if (typeLang()) {
-          <svg
-            class="w-5 h-5 rounded-full me-3 shadow"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            viewBox="0 0 3900 3900"
-          >
-            <path fill="#b22234" d="M0 0h7410v3900H0z" />
-            <path
-              d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
-              stroke="#fff"
-              stroke-width="300"
-            />
-            <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
-            <g fill="#fff">
-              <g id="d">
-                <g id="c">
-                  <g id="e">
-                    <g id="b">
-                      <path
-                        id="a"
-                        d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
-                      />
-                      <use xlink:href="#a" y="420" />
-                      <use xlink:href="#a" y="840" />
-                      <use xlink:href="#a" y="1260" />
-                    </g>
-                    <use xlink:href="#a" y="1680" />
-                  </g>
-                  <use xlink:href="#b" x="247" y="210" />
-                </g>
-                <use xlink:href="#c" x="494" />
-              </g>
-              <use xlink:href="#d" x="988" />
-              <use xlink:href="#c" x="1976" />
-              <use xlink:href="#e" x="2470" />
-            </g>
-          </svg>
-          <span>EN</span>} @else {
-          <svg
-            class="w-5 h-5 rounded-full me-3"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 640 480"
-          >
-            <rect width="640" height="160" fill="#CE1126" />
-
-            <rect y="160" width="640" height="160" fill="#FFF" />
-
-            <rect y="320" width="640" height="160" fill="#000" />
-
-            <g transform="translate(320 240) scale(0.5)">
-              <path fill="#C09300" d="M-40-80h80l-40 160z" />
-              <path fill="#C09300" d="M-40 80h80v80h-80z" />
+          <div class="ltr:flex rtl:hidden">
+            <svg
+              class="w-5 h-5 rounded-full me-3 shadow"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 3900 3900"
+            >
+              <path fill="#b22234" d="M0 0h7410v3900H0z" />
               <path
-                fill="#C09300"
-                d="M-60 0h20v40h-20zm100 0h20v40h-20zm-90 60h10v40h-10zm80 0h10v40h-10z"
+                d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0"
+                stroke="#fff"
+                stroke-width="300"
               />
-            </g>
-          </svg>
-          <span>AR</span>
-          }
+              <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
+              <g fill="#fff">
+                <g id="d">
+                  <g id="c">
+                    <g id="e">
+                      <g id="b">
+                        <path
+                          id="a"
+                          d="M247 90l70.534 217.082-184.66-134.164h228.253L176.466 307.082z"
+                        />
+                        <use xlink:href="#a" y="420" />
+                        <use xlink:href="#a" y="840" />
+                        <use xlink:href="#a" y="1260" />
+                      </g>
+                      <use xlink:href="#a" y="1680" />
+                    </g>
+                    <use xlink:href="#b" x="247" y="210" />
+                  </g>
+                  <use xlink:href="#c" x="494" />
+                </g>
+                <use xlink:href="#d" x="988" />
+                <use xlink:href="#c" x="1976" />
+                <use xlink:href="#e" x="2470" />
+              </g>
+            </svg>
+            <span>EN</span>
+          </div>
+
+          <div class="rtl:flex ltr:hidden">
+            <svg
+              class="w-5 h-5 rounded-full me-3"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 640 480"
+            >
+              <rect width="640" height="160" fill="#CE1126" />
+
+              <rect y="160" width="640" height="160" fill="#FFF" />
+
+              <rect y="320" width="640" height="160" fill="#000" />
+
+              <g transform="translate(320 240) scale(0.5)">
+                <path fill="#C09300" d="M-40-80h80l-40 160z" />
+                <path fill="#C09300" d="M-40 80h80v80h-80z" />
+                <path
+                  fill="#C09300"
+                  d="M-60 0h20v40h-20zm100 0h20v40h-20zm-90 60h10v40h-10zm80 0h10v40h-10z"
+                />
+              </g>
+            </svg>
+            <span>AR</span>
+          </div>
         </button>
         @if (dropdown) {
         <div class="absolute button-3">
