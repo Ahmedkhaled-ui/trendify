@@ -1,6 +1,6 @@
 @if (likedCount()) {
 <section class="mt-16">
-  <div class="grid grid-cols-2 container gap-y-10">
+  <div class="grid md:grid-cols-2 container gap-y-10 p-5 md:p-0">
     @for (item of wishItem() ; track $index) {
     <div class="relative">
       <img

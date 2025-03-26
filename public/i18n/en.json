@@ -53,6 +53,9 @@
   "brands": {
     "shopbybrands": "shop by brands"
   },
+  "cart": {
+    "Cartisempty": "Cart is empty"
+  },
   "footer": {
     "Join": "Join our newsletter to stay up to date on features and releases.",
     "email": "enter your email",

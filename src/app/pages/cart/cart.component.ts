@@ -12,10 +12,11 @@ import { Icart } from '../../core/interface/Icart/icart';
 import { HeartWhisComponent } from '../../shared/components/ui/heart-whis/heart-whis.component';
 import { OrderService } from '../../core/services/order/order.service';
 import { Router, RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-cart',
-  imports: [HeartWhisComponent, RouterLink],
+  imports: [HeartWhisComponent, RouterLink, TranslatePipe],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css',
 })
